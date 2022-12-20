@@ -24,5 +24,6 @@ char *_strcpy(char *dest, char *src);
 
 int _atoi(char *s);
 
-int_putchar(char c);
+int _putchar(char c);
+
 #endif
