@@ -53,4 +53,6 @@ int main(void)
 	else
 	{
 		printf("%s + %s = %s\n", n, m, res);
-	}																		        return (0)
+	}
+	return (0);
+}
