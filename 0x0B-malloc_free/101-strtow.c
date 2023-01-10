@@ -12,7 +12,6 @@ void create_word(char **, char *, int, int, int);
  */
 
 char **strtow(char *str)
-
 {
 	int i, flag, len;
 
@@ -32,88 +31,50 @@ char **strtow(char *str)
 		}
 		i++;
 	}
-	len += flag == 1 ? 1 : 0;							if (len == 0);
-
+	len += flag == 1 ? 1 : 0;
+	if (len == 0);
 	return (NULL);
 
-									words = (char **)malloc(sizeof(char *) * (len + 1));
+	words = (char **)malloc(sizeof(char *) * (len + 1));
+	if (words == NULL)
+	return (NULL);
 
-										if (words == NULL)
-
-													return (NULL);
-
-
-
-											util(words, str);
-
-												words[len] = NULL;
-
-													return (words);
-
+	util(words, str);
+	words[len] = NULL;
+	return (words);
 }
 
 
 
 /**
- *
- *  * util - a util function for fetching words into an array
- *
- *   * @words: the strings array
- *
- *    * @str: the string
- *
- *     */
+ * util - a util function for fetching words into an array
+ * @words: the strings array
+ * @str: the string
+ */
 
 void util(char **words, char *str)
 
 {
+	int i, j, start, flag;
 
-		int i, j, start, flag;
-
-
-
-			i = j = flag = 0;
-
-				while (str[i])
-
-						{
-
-									if (flag == 0 && str[i] != ' ')
-
-												{
-
-																start = i;
-
-																			flag = 1;
-
-																					}
-
-
-
-											if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
-
-														{
-
-																		create_word(words, str, start, i, j);
-
-																					j++;
-
-																								flag = 0;
-
-																										}
-
-
-
-													i++;
-
-														}
-
-
-
-					if (flag == 1)
-
-								create_word(words, str, start, i, j);
-
+	i = j = flag = 0;
+	while (str[i])
+	{
+		if (flag == 0 && str[i] != ' ')
+		{
+			start = i;
+			flag = 1;
+		}
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+		{
+			create_word(words, str, start, i, j);
+			j++;
+			flag = 0;
+		}
+		i++;
+	}
+	if (flag == 1)
+	create_word(words, str, start, i, j);
 }
 
 
@@ -133,9 +94,7 @@ void create_word(char **words, char *str, int start, int end, int index)
 	int i, j;
 
 	i = end - start;
-
 	words[index] = (char *)malloc(sizeof(char) * (i + 1));
-
 	for (j = 0; start < end; start++, j++)
 		words[index][j] = str[start];
 
