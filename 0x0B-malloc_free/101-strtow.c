@@ -7,7 +7,7 @@ void create_word(char **, char *, int, int, int);
 
 /**
  * strtow - splits a string into words.
- * str: the string
+ * @str: the string
  * Return: returns a pointer to an array of strings (words)
  */
 
@@ -32,7 +32,7 @@ char **strtow(char *str)
 		i++;
 	}
 	len += flag == 1 ? 1 : 0;
-	if (len == 0);
+	if (len == 0)
 	return (NULL);
 
 	words = (char **)malloc(sizeof(char *) * (len + 1));
