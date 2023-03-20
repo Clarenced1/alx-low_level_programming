@@ -1,1 +1,2 @@
-i
+gcc -c -fPIC *.c
+gcc -shared -o libdynamic.so *.oi
